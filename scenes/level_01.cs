@@ -12,10 +12,4 @@ public partial class level_01 : Node2D
 	public override void _Process(double delta)
 	{
 	}
-
-	public void _on_surrender_pressed()
-	{
-		GD.Print("Surrender");
-		GetTree().ChangeSceneToFile("res://scenes/main.tscn");
-	}
 }

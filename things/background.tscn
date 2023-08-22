@@ -7,23 +7,24 @@
 [node name="background" type="ParallaxBackground"]
 script = ExtResource("1_0acum")
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+[node name="level01" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2(700, 0)
 
-[node name="Landscape" type="Sprite2D" parent="ParallaxLayer"]
+[node name="Landscape" type="Sprite2D" parent="level01"]
 position = Vector2(351, 250)
 scale = Vector2(1.15359, 1.2451)
 texture = ExtResource("1_wy0hn")
 
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+[node name="level02" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.7, 0.7)
 motion_mirroring = Vector2(700, 0)
 
-[node name="Tower" type="Sprite2D" parent="ParallaxLayer2"]
+[node name="Tower" type="Sprite2D" parent="level02"]
 position = Vector2(48, 208)
 scale = Vector2(0.210034, 0.210034)
 texture = ExtResource("2_52x40")
 
-[node name="Tower2" type="Sprite2D" parent="ParallaxLayer2"]
+[node name="Tower2" type="Sprite2D" parent="level02"]
 position = Vector2(480, 168)
 scale = Vector2(0.145833, 0.145833)
 texture = ExtResource("2_52x40")

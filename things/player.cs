@@ -51,15 +51,16 @@ public partial class player : CharacterBody2D
 		if (direction[0] > 0) {
 			sprites.FlipH = true;
 		}
-		if (direction[0] != 0)
+
+		
+		if (direction[0] != 0)	// walk in one direction
 		{
 			velocity.X = direction.X * Speed;
-			//sprites.Play("walk");
 			if (velocity.Y == 0) {
 				animation.Play("walk");
 			}
 		}
-		else
+		else	// standnig still
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 			//sprites.Play("idle");
@@ -71,4 +72,11 @@ public partial class player : CharacterBody2D
 		Velocity = velocity;
 		MoveAndSlide();
 	}
+
+	public void _on_surrender_pressed()
+	{
+		GD.Print("Surrender");
+		GetTree().ChangeSceneToFile("res://scenes/main.tscn");
+	}
+
 }
