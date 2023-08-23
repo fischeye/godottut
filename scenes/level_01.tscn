@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cbk2jdv4wuhtt"]
+[gd_scene load_steps=9 format=3 uid="uid://cbk2jdv4wuhtt"]
 
 [ext_resource type="Script" path="res://scenes/level_01.cs" id="1_5lp0l"]
 [ext_resource type="Texture2D" uid="uid://c2qeql3b8j6sv" path="res://images/background/landscape.jpg" id="2_8g8an"]
 [ext_resource type="PackedScene" uid="uid://bm2phgh82p7uv" path="res://things/player.tscn" id="2_w2iv4"]
 [ext_resource type="Texture2D" uid="uid://hguf3omdmgph" path="res://images/level_01/tilemap.png" id="4_lmoug"]
 [ext_resource type="PackedScene" uid="uid://cxditgqrdde05" path="res://things/enemy.tscn" id="5_gd1tw"]
+[ext_resource type="Script" path="res://scenes/Health.cs" id="6_8wudm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_suay1"]
 texture = ExtResource("4_lmoug")
@@ -88,7 +89,16 @@ texture = ExtResource("2_8g8an")
 position = Vector2(342, 240)
 
 [node name="enemy" parent="." instance=ExtResource("5_gd1tw")]
-position = Vector2(104, 352)
+position = Vector2(104, 296)
 
 [node name="enemy2" parent="." instance=ExtResource("5_gd1tw")]
-position = Vector2(528, 352)
+position = Vector2(528, 296)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Health" type="Label" parent="UI"]
+offset_left = 144.0
+offset_top = 96.0
+offset_right = 184.0
+offset_bottom = 119.0
+script = ExtResource("6_8wudm")
