@@ -34,7 +34,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oofnr"]
-size = Vector2(128, 40)
+size = Vector2(192, 40)
 
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_bukkp")

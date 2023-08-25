@@ -7,12 +7,8 @@ public partial class Health : Label
     public override void _Process(double delta)
 	{
         CharacterBody2D player = GetNode<CharacterBody2D>("../../player");
-        GD.Print(player.Name);
-        if (player.Name == "player") {
-            GD.Print(player);
-        }
-
-        int playerHP = 100;
+        // cast Class for whatever reason???
+        int playerHP = ((player)player).health;
         Text = "HP: " + playerHP.ToString();
 	}
 

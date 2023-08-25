@@ -97,8 +97,20 @@ position = Vector2(528, 296)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Health" type="Label" parent="UI"]
-offset_left = 144.0
-offset_top = 96.0
-offset_right = 184.0
-offset_bottom = 119.0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "100"
 script = ExtResource("6_8wudm")
+
+[node name="Surrender" type="Button" parent="UI"]
+offset_left = 584.0
+offset_top = 8.0
+offset_right = 683.0
+offset_bottom = 40.0
+text = "Surrender"
+
+[connection signal="pressed" from="UI/Surrender" to="." method="_on_surrender_pressed"]

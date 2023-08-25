@@ -43,6 +43,10 @@ public partial class player : CharacterBody2D
 			velocity.Y = JumpVelocity;
 		}
 
+		if (Input.IsKeyPressed(Key.Escape)) {
+			GetTree().ChangeSceneToFile("res://scenes/main.tscn");
+		}
+
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
@@ -75,11 +79,4 @@ public partial class player : CharacterBody2D
 		Velocity = velocity;
 		MoveAndSlide();
 	}
-
-	public void _on_surrender_pressed()
-	{
-		GD.Print("Surrender");
-		GetTree().ChangeSceneToFile("res://scenes/main.tscn");
-	}
-
 }

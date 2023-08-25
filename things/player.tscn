@@ -253,12 +253,3 @@ limit_left = 0
 limit_top = 0
 limit_right = 700
 limit_bottom = 500
-
-[node name="Surrender" type="Button" parent="."]
-offset_left = 104.0
-offset_top = -144.0
-offset_right = 203.0
-offset_bottom = -112.0
-text = "Surrender"
-
-[connection signal="pressed" from="Surrender" to="." method="_on_surrender_pressed"]
