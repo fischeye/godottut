@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxditgqrdde05"]
+[gd_scene load_steps=12 format=3 uid="uid://cxditgqrdde05"]
 
 [ext_resource type="Script" path="res://things/enemy.cs" id="1_bukkp"]
 [ext_resource type="Texture2D" uid="uid://dk3sfk31c5tyv" path="res://images/simpleEnemy/enemy01.png" id="1_has02"]
 [ext_resource type="Texture2D" uid="uid://dc6wysp2d62rk" path="res://images/simpleEnemy/enemy03.png" id="2_mcqd6"]
 [ext_resource type="Texture2D" uid="uid://c5p381qou0wk2" path="res://images/simpleEnemy/enemy02.png" id="3_k0brt"]
+[ext_resource type="Texture2D" uid="uid://bdbg3ai3b42jp" path="res://images/simpleEnemy/death01.png" id="4_kdewn"]
+[ext_resource type="Texture2D" uid="uid://2df6tfs74myj" path="res://images/simpleEnemy/death02.png" id="5_1ds0b"]
+[ext_resource type="Texture2D" uid="uid://dbecpeqapnaq6" path="res://images/simpleEnemy/death03.png" id="6_i7ebj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_at0gw"]
-size = Vector2(48, 23)
+size = Vector2(42, 19)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ony1q"]
 animations = [{
@@ -23,6 +26,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("4_kdewn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1ds0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_i7ebj")
+}],
+"loop": true,
+"name": &"death",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_has02")
 }, {
 "duration": 1.0,
@@ -30,30 +47,41 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 2.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oofnr"]
 size = Vector2(192, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c5av"]
+size = Vector2(40, 5)
+
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_bukkp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 9.5)
+position = Vector2(0, 11.5)
 shape = SubResource("RectangleShape2D_at0gw")
 
 [node name="enemySprites" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.0766667, 0.0766667)
 sprite_frames = SubResource("SpriteFrames_ony1q")
-animation = &"idle"
+animation = &"death"
 autoplay = "idle"
 
 [node name="PlayerDetection" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_oofnr")
 
+[node name="PlayerDeath" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDeath"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_4c5av")
+
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="PlayerDeath" to="." method="_on_player_death_body_entered"]
